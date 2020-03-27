@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" pickOnBounds="false" prefHeight="362.0" prefWidth="602.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="banco.MainController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" pickOnBounds="false" prefHeight="362.0" prefWidth="602.0" style="-fx-background-color: #93B1A7#93B1A7;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="banco.MainController">
    <children>
       <Circle fx:id="cajero" fill="GREEN" layoutX="551.0" layoutY="181.0" radius="37.0" stroke="BLACK" strokeType="INSIDE" />
       <Line endX="100.0" layoutX="501.0" layoutY="125.0" startX="-7.0" />
@@ -17,5 +19,10 @@
       <Rectangle fx:id="p3" arcHeight="5.0" arcWidth="5.0" fill="#fcfcfc" height="73.0" layoutX="203.0" layoutY="144.0" stroke="BLACK" strokeType="INSIDE" width="73.0" />
       <Rectangle fx:id="p2" arcHeight="5.0" arcWidth="5.0" fill="#fcfcfc" height="73.0" layoutX="302.0" layoutY="144.0" stroke="BLACK" strokeType="INSIDE" width="73.0" />
       <Rectangle fx:id="p1" arcHeight="5.0" arcWidth="5.0" fill="#fcfcfc" height="73.0" layoutX="402.0" layoutY="144.0" stroke="BLACK" strokeType="INSIDE" width="73.0" />
+      <Label layoutX="232.0" layoutY="15.0" text="BANCO">
+         <font>
+            <Font size="41.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

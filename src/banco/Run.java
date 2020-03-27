@@ -45,7 +45,7 @@ public class Run extends Thread{
        } catch (InterruptedException ex) {
            Logger.getLogger(Run.class.getName()).log(Level.SEVERE, null, ex);
        }
-        for(int x=1; x<=15; x++){
+        for(int x=1; x<=10; x++){
            Cliente cl = new Cliente(e,p1,p2,p3,p4,p5,cajero,semA);
            cl.start();
             try {
