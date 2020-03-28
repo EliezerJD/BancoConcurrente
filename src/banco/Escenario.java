@@ -5,9 +5,7 @@
  */
 package banco;
 
-import java.util.concurrent.Semaphore;
 import javafx.scene.paint.Color;
-import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
 
 /**
@@ -21,33 +19,30 @@ public class Escenario {
     int n;
     Color ocupado  = Color.ORANGE;
     Color libre  = Color.WHITE;
-    public synchronized void entrar(Rectangle p1, Rectangle p2, Rectangle p3, Rectangle p4, Rectangle p5, Circle cajero) throws InterruptedException{
-        
+    public synchronized void entrar(Rectangle p1, Rectangle p2, Rectangle p3, Rectangle p4, Rectangle p5) throws InterruptedException{
         while(cont>5){
             wait();
         }
-        
         contColor++;
-        pintar(contColor, ocupado, p1,p2,p3,p4,p5,cajero);
+        pintar(contColor, ocupado, p1,p2,p3,p4,p5);
         cont++;
         if(contColor==5){
             contColor=0;
         }
     }
     
-    public synchronized void salir(Rectangle p1, Rectangle p2, Rectangle p3, Rectangle p4, Rectangle p5, Circle cajero) throws InterruptedException{
+    public synchronized void salir(Rectangle p1, Rectangle p2, Rectangle p3, Rectangle p4, Rectangle p5) throws InterruptedException{
         if(contSalir==5){
             contSalir=0;
         }
         contSalir++;
-        pintar(contSalir, libre, p1,p2,p3,p4,p5,cajero);
+        pintar(contSalir, libre, p1,p2,p3,p4,p5);
         cont--;
-        System.out.println(cont +": salida");
         notifyAll();
     }  
     
     
-    public void pintar(int cont, Color color, Rectangle p1, Rectangle p2, Rectangle p3, Rectangle p4, Rectangle p5, Circle cajero) throws InterruptedException{
+    public void pintar(int cont, Color color, Rectangle p1, Rectangle p2, Rectangle p3, Rectangle p4, Rectangle p5) throws InterruptedException{
         Thread.currentThread().sleep(150);
         switch(cont){
             case 1:{

@@ -9,6 +9,7 @@ import java.util.concurrent.Semaphore;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.scene.shape.Circle;
+import javafx.scene.shape.Polygon;
 import javafx.scene.shape.Rectangle;
 
 /**
@@ -24,9 +25,13 @@ public class Cliente extends Thread{
     Rectangle p5;
     Circle cajero;
     Semaphore semA;
-    Tramite t;
+    Semaphore semB;
+    TramiteCajero t;
+    TramiteGerente g;
+    int servicio;
+    Polygon gerente;
 
-    Cliente(Escenario e, Rectangle p1, Rectangle p2, Rectangle p3, Rectangle p4, Rectangle p5, Circle cajero, Semaphore semA) {
+    Cliente(Escenario e, Rectangle p1, Rectangle p2, Rectangle p3, Rectangle p4, Rectangle p5, Circle cajero, Semaphore semA, Semaphore semB, int servicio, Polygon gerente) {
         this.e = e;
         this.p1 = p1;
         this.p2 = p2;
@@ -35,6 +40,9 @@ public class Cliente extends Thread{
         this.p5 = p5;
         this.cajero = cajero;
         this.semA= semA;
+        this.semB= semB;
+        this.servicio = servicio;
+        this.gerente = gerente;
         
     }
 
@@ -42,10 +50,19 @@ public class Cliente extends Thread{
     @Override
     public void run() {
         try {
-            e.entrar(p1,p2,p3,p4,p5,cajero);
-            t = new Tramite(semA, e, p1,p2,p3,p4,p5,cajero);
-            t.start();
-           
+            e.entrar(p1,p2,p3,p4,p5);
+            switch(servicio){
+                case 0:{
+                    t = new TramiteCajero(semA, e, p1,p2,p3,p4,p5,cajero);
+                    t.start();
+                    break;
+                }
+                case 1:{
+                    g = new TramiteGerente(semB, e, p1,p2,p3,p4,p5,gerente);
+                    g.start();
+                    break;
+                }
+            }
         } catch (InterruptedException ex) {
             Logger.getLogger(Cliente.class.getName()).log(Level.SEVERE, null, ex);
         }

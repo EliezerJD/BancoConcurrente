@@ -16,7 +16,7 @@ import javafx.scene.shape.Rectangle;
  *
  * @author eliezer
  */
-public class Tramite extends Thread{
+public class TramiteCajero extends Thread{
     Semaphore semA;
     Escenario e;
     Rectangle p1;
@@ -25,8 +25,7 @@ public class Tramite extends Thread{
     Rectangle p4;
     Rectangle p5;
     Circle cajero;
-
-    Tramite(Semaphore semA, Escenario e, Rectangle p1, Rectangle p2, Rectangle p3, Rectangle p4, Rectangle p5, Circle cajero) {
+    TramiteCajero(Semaphore semA, Escenario e, Rectangle p1, Rectangle p2, Rectangle p3, Rectangle p4, Rectangle p5, Circle cajero) {
         this.semA = semA;
         this.e = e;
         this.p1 = p1;
@@ -38,18 +37,18 @@ public class Tramite extends Thread{
     }
     @Override
     public void run(){
-        try {
+        try {   
             semA.acquire();
-            System.out.println("Haciendo tramite...");
+            System.out.println("Haciendo tramite... con cajero");
             cajero.setFill(Color.RED);
-            Thread.currentThread().sleep(3500);
+            int random = (int) (Math.random()*6 + 1);
+            Thread.currentThread().sleep((random*1000)-500);
             cajero.setFill(Color.GREEN);
-            e.salir(p1, p2, p3, p4, p5, cajero);
-            
+            e.salir(p1, p2, p3, p4, p5);
+            semA.release(); 
         } catch (InterruptedException ex) {
-            Logger.getLogger(Tramite.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TramiteCajero.class.getName()).log(Level.SEVERE, null, ex);
         } 
-        semA.release();
     }
     
 }

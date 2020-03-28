@@ -4,16 +4,17 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.Polygon?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" pickOnBounds="false" prefHeight="362.0" prefWidth="602.0" style="-fx-background-color: #93B1A7#93B1A7;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="banco.MainController">
    <children>
-      <Circle fx:id="cajero" fill="GREEN" layoutX="551.0" layoutY="181.0" radius="37.0" stroke="BLACK" strokeType="INSIDE" />
-      <Line endX="100.0" layoutX="501.0" layoutY="125.0" startX="-7.0" />
-      <Line endX="100.0" layoutX="501.0" layoutY="236.0" startX="-7.0" />
-      <Line endX="181.5" endY="17.0" layoutX="312.0" layoutY="143.0" startX="181.5" startY="-17.5" />
-      <Line endX="181.5" endY="17.0" layoutX="312.0" layoutY="218.0" startX="181.5" startY="-17.5" />
+      <Circle fx:id="cajero" fill="GREEN" layoutX="551.0" layoutY="114.0" radius="37.0" stroke="BLACK" strokeType="INSIDE" />
+      <Line endX="100.0" layoutX="501.0" layoutY="58.0" startX="-7.0" />
+      <Line endX="100.0" layoutX="501.0" layoutY="169.0" startX="-7.0" />
+      <Line endX="181.5" endY="17.0" layoutX="312.0" layoutY="76.0" startX="181.5" startY="-17.5" />
+      <Line endX="181.5" endY="17.0" layoutX="312.0" layoutY="151.0" startX="181.5" startY="-17.5" />
       <Rectangle fx:id="p5" arcHeight="5.0" arcWidth="5.0" fill="#fcfcfc" height="73.0" layoutX="11.0" layoutY="144.0" stroke="BLACK" strokeType="INSIDE" width="73.0" />
       <Rectangle fx:id="p4" arcHeight="5.0" arcWidth="5.0" fill="#fcfcfc" height="73.0" layoutX="106.0" layoutY="145.0" stroke="BLACK" strokeType="INSIDE" width="73.0" />
       <Rectangle fx:id="p3" arcHeight="5.0" arcWidth="5.0" fill="#fcfcfc" height="73.0" layoutX="203.0" layoutY="144.0" stroke="BLACK" strokeType="INSIDE" width="73.0" />
@@ -24,5 +25,12 @@
             <Font size="41.0" />
          </font>
       </Label>
+      <Line endX="100.0" layoutX="502.0" layoutY="186.0" startX="-7.0" />
+      <Line endX="100.0" layoutX="502.0" layoutY="297.0" startX="-7.0" />
+      <Line endX="181.5" endY="17.0" layoutX="313.0" layoutY="204.0" startX="181.5" startY="-17.5" />
+      <Line endX="181.5" endY="17.0" layoutX="313.0" layoutY="279.0" startX="181.5" startY="-17.5" />
+      <Label layoutX="530.0" layoutY="32.0" text="Cajero" />
+      <Label layoutX="527.0" layoutY="304.0" text="Gerente" />
+      <Polygon fx:id="gerente" fill="GREEN" layoutX="548.0" layoutY="239.0" points="-37.5, 40.0, 36.5, 40.0, -0.5, -34.0" rotate="-90.0" stroke="BLACK" strokeType="INSIDE" />
    </children>
 </AnchorPane>

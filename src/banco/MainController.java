@@ -10,6 +10,7 @@ import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.shape.Circle;
+import javafx.scene.shape.Polygon;
 import javafx.scene.shape.Rectangle;
 
 /**
@@ -29,11 +30,13 @@ public class MainController implements Initializable{
     public Rectangle p2;
     @FXML
     public Rectangle p1;
+    @FXML
+    private Polygon gerente;
     
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        Run run = new Run(p1,p2,p3,p4,p5,cajero);
+        Run run = new Run(p1,p2,p3,p4,p5,cajero,gerente);
         run.start();
         
     }
